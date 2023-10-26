@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  amount: 9.99
+  event_datetime: 2023-07-24 21:24:35
+  image_url: MyString
+  rating: 9.99
+  location: MyString
+  category: one
+
+two:
+  name: MyString
+  description: MyText
+  amount: 9.99
+  event_datetime: 2023-07-24 21:24:35
+  image_url: MyString
+  rating: 9.99
+  location: MyString
+  category: two

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number_of_tickets: 1
+  ticket_number: MyString
+  amount: 9.99
+  event: one
+  user: one
+
+two:
+  number_of_tickets: 1
+  ticket_number: MyString
+  amount: 9.99
+  event: two
+  user: two

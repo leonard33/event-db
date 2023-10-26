@@ -1,0 +1,309 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  '/api/v1/bookings':
+    get:
+      summary: list bookings
+      tags:
+        - bookings
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create booking
+      tags:
+        - bookings
+      parameters: []
+      responses:
+        '201':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                number_of_tickets:
+                  type: number
+                ticket_number:
+                  type: string
+                amount:
+                  type: number
+                  format: float
+                event_id:
+                  type: integer
+                user_id:
+                  type: integer
+              required:
+                - number_of_tickets
+                - ticket_number
+                - amount
+                - event_id
+                - user_id
+  '/api/v1/bookings/{id}':
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: show booking
+      tags:
+        - bookings
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update booking
+      tags:
+        - bookings
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful
+        '422':
+          description: unsuccessful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                number_of_tickets:
+                  type: number
+                ticket_number:
+                  type: string
+                amount:
+                  type: number
+                  format: float
+                event_id:
+                  type: integer
+                user_id:
+                  type: integer
+              required:
+                - number_of_tickets
+                - ticket_number
+                - amount
+                - event_id
+                - user_id
+    delete:
+      summary: delete booking
+      tags:
+        - bookings
+      responses:
+        '204':
+          description: successful
+  '/api/v1/categories':
+    get:
+      summary: list categories
+      tags:
+        - Categories
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create category
+      tags:
+        - Categories
+      parameters: []
+      responses:
+        '201':
+          description: successful
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required:
+                - name
+  '/api/v1/categories/{id}':
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: show category
+      tags:
+        - Categories
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update category
+      tags:
+        - Categories
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required:
+                - name
+    delete:
+      summary: delete category
+      tags:
+        - Categories
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: successful
+  '/api/v1/events':
+    get:
+      summary: list events
+      tags:
+        - events
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create event
+      tags:
+        - events
+      parameters: []
+      responses:
+        '201':
+          description: successful
+        '422':
+          description: unprocessable entity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                amount:
+                  type: number
+                  format: float
+                event_datetime:
+                  type: string
+                  format: date_time
+                image_url:
+                  type: string
+                rating:
+                  type: number
+                  format: float
+                location:
+                  type: string
+                category_id:
+                  type: integer
+              required:
+                - name
+                - description
+                - amount
+                - event_datetime
+                - image_url
+                - rating
+                - location
+                - category_id
+  '/api/v1/events/{id}':
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: show event
+      tags:
+        - events
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update event
+      tags:
+        - events
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful
+        '422':
+          description: unsuccessful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                amount:
+                  type: number
+                  format: float
+                event_datetime:
+                  type: string
+                  format: date_time
+                image_url:
+                  type: string
+                rating:
+                  type: number
+                  format: float
+                location:
+                  type: string
+                category_id:
+                  type: integer
+              required:
+                - name
+                - description
+                - amount
+                - event_datetime
+                - image_url
+                - rating
+                - location
+                - category_id
+    delete:
+      summary: delete event
+      tags:
+        - events
+      responses:
+        '204':
+          description: successful
+servers:
+  - url: https://events-9gfy.onrender.com/
+    variables:
+      defaultHost:
+        default: events-9gfy.onrender.com/
