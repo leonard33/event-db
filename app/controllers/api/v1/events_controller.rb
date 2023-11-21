@@ -48,6 +48,6 @@ class Api::V1::EventsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def event_params
     params.require(:event).permit(:name, :description, :amount, :event_datetime, :image_url, :rating, :location,
-                                  :category_id)
+                                  :category_id, :posted_by, :group_ticket, :vip_ticket, :vvip_ticket)
   end
 end
